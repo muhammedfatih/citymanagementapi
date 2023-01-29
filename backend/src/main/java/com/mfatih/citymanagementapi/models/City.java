@@ -3,10 +3,7 @@ package com.mfatih.citymanagementapi.models;
 import net.bytebuddy.implementation.bind.annotation.Default;
 import org.springframework.lang.Nullable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class City {
@@ -36,5 +33,6 @@ public class City {
     }
 
     private final String name;
+    @Column(length=1000)
     private final String photoUrl;
 }

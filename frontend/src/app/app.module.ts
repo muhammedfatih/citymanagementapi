@@ -5,18 +5,22 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CityListComponent } from './city-list/city-list.component';
+import { CityFormComponent } from './city-form/city-form.component';
 import { CityService } from './service/city.service';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CityListComponent
+    CityListComponent,
+    CityFormComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [CityService],
   bootstrap: [AppComponent]

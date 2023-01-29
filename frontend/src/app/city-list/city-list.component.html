@@ -1,5 +1,11 @@
 <div class="card my-5">
   <div class="card-body">
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" [(ngModel)]="name" name="name">
+      <button (click)="getCities()">Filter</button>
+    </form>
+    <app-pagination [currentPage]="page" [totalPages]="totalPages" (pageChanged)="onPageChange($event)"></app-pagination>
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
         <tr>
