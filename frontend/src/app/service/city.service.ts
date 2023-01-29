@@ -27,4 +27,11 @@ export class CityService {
     return this.http.post<City>(this.citiesUrl, city);
   }
 
+  public update(id:number, city: City): Observable<City> {
+    return this.http.put<City>(`${this.citiesUrl}/${id}`, city);
+  }
+
+  public findById(id: number): Observable<City> {
+    return this.http.get<City>(`${this.citiesUrl}/${id}`);
+  }
 }

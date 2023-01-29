@@ -32,7 +32,14 @@ public class City {
         return photoUrl;
     }
 
-    private final String name;
+    private String name;
     @Column(length=1000)
-    private final String photoUrl;
+    private String photoUrl;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
 }
