@@ -23,10 +23,6 @@ public class CityService {
         return cityRepository.findById(id).get();
     }
 
-    public void deleteById(Long id) {
-        cityRepository.deleteById(id);
-    }
-
     public City update(City city, Long id) {
         City existingCity = cityRepository.findById(id).get();
         existingCity.setName(city.getName());

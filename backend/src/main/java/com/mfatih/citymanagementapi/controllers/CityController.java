@@ -8,11 +8,17 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin
 public class CityController {
+
     private final CityService cityService;
 
     public CityController(CityService cityService) {
         this.cityService = cityService;
     }
+    @GetMapping("/test")
+    public String test() {
+        return "test";
+    }
+
     @GetMapping("/cities")
     public Page<City> getCities(@RequestParam(defaultValue = "0") int page,
                                 @RequestParam(defaultValue = "10") int size,

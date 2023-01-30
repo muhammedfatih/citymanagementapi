@@ -2,7 +2,7 @@ package com.mfatih.citymanagementapi;
 
 import com.mfatih.citymanagementapi.models.City;
 import com.mfatih.citymanagementapi.models.CityCsv;
-import com.mfatih.citymanagementapi.repositories.CityRepository;
+import com.mfatih.citymanagementapi.services.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,7 +20,7 @@ import java.util.List;
 @SpringBootApplication
 public class Application {
 	@Autowired
-	private CityRepository cityRepository;
+	private CityService cityService;
 	@Autowired
 	private ResourceLoader resourceLoader;
 	public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class Application {
 			MappingIterator<CityCsv> it = mapper.readerFor(CityCsv.class).with(schema).readValues(csvFile);
 			List<CityCsv> cities = it.readAll();
 			for (CityCsv city : cities){
-				cityRepository.save(new City(city.getName(), city.getPhoto()));
+				cityService.save(new City(city.getName(), city.getPhoto()));
 			}
 		};
 	}
