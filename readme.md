@@ -41,7 +41,6 @@ Steps:
 
 It will be available in `http://localhost:4200`
 
-
 ## Technical Details
 
 ### Capabilities
@@ -68,6 +67,8 @@ It will be available in `http://localhost:4200`
 
 Things can be improved:
 
-* Unit tests for frontend
-* UserRole definition and allowing only eligible users to update city informations
-* Endpoint information in the frontend can be moved to 
+* Unit tests can be written for frontend.
+* Updating city information can be up to UserRole definitions.
+* Endpoint information in the frontend can be moved to a config file.
+* More persistent database system can be used.
+* In city update screen, can be a drag drop photo upload component.
