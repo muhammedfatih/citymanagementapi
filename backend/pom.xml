@@ -14,7 +14,7 @@
 	<name>City Management API</name>
 	<description>Allow to update and search in a pre-populated city list as API</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -51,5 +51,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

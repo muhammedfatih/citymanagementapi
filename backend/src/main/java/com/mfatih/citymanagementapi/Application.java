@@ -15,6 +15,7 @@ import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 @SpringBootApplication
@@ -30,10 +31,10 @@ public class Application {
 	@Bean
 	public ApplicationRunner importCities() throws IOException {
 		return args -> {
-			File csvFile = new File(getClass().getClassLoader().getResource("cities.csv").getFile());
+			InputStream csvInputStream = getClass().getClassLoader().getResourceAsStream("cities.csv");
 			CsvSchema schema = CsvSchema.emptySchema().withHeader();
 			CsvMapper mapper = new CsvMapper();
-			MappingIterator<CityCsv> it = mapper.readerFor(CityCsv.class).with(schema).readValues(csvFile);
+			MappingIterator<CityCsv> it = mapper.readerFor(CityCsv.class).with(schema).readValues(csvInputStream);
 			List<CityCsv> cities = it.readAll();
 			for (CityCsv city : cities){
 				cityService.save(new City(city.getName(), city.getPhoto()));
